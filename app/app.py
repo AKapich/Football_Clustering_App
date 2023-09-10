@@ -10,11 +10,11 @@ from process4positions import relevant_features_dict, new_metrics_dict
 st.set_page_config(
         page_title="Player Profiles App",
         #page_icon="⚽",
-        page_icon = Image.open('C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/app/alekskapich.ico')
+        page_icon = 'https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/alekskapich.ico'
     )
 
-outfield = pd.read_csv('C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/data_last365/outfield365full.csv')
-goalkeepers = pd.read_csv('C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/data_last365/goalkeepers365full.csv')
+outfield = pd.read_csv('https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/outfield365full.csv')
+goalkeepers = pd.read_csv('https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/goalkeepers365full.csv')
 
 st.title("Player Profiles in Top 5 Leagues Analytical Tool")
 st.markdown("*Platform providing ML tool to discover player profiles for particular positions in the top 5 european leagues*")
@@ -33,10 +33,8 @@ st.markdown(
     </style>
     """, unsafe_allow_html=True
 )
-logo = Image.open("C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/app/alekskapich.png")
-logo = logo.resize((200, 200))
 with st.sidebar:
-    st.image(logo)
+    st.image("https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/alekskapich.png", width=200)
 
 
 selected_position = st.sidebar.selectbox("Select position to scrutinize:",     
@@ -102,9 +100,10 @@ except Exception:
 
 #
 st.markdown('---')
-opta = Image.open('C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/app/Opta_by_Stats_Perform_Logo.png')
-opta = opta.resize((1030, 348))
-st.image(opta, caption='App made by Aleks Kapich. Data powered by Opta')
+# opta = opta.resize((1030, 348))
+st.image('https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/Opta_by_Stats_Perform_Logo.png',
+          caption='App made by Aleks Kapich. Data powered by Opta',
+          width=773)
 
 
 # signature
