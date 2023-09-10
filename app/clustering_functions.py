@@ -18,10 +18,12 @@ def basic_clustering(df, position, age_lower_threshold=16, age_upper_threshold=4
     df = df[df['Age'] >= f'{str(age_lower_threshold)}-000'][df['Age'] <= f'{str(age_upper_threshold)}-000']
     df = df[df['Minutes'] >= minute_threshold]
     df = df[df['DetailedPosition'].isin(p4p.position_name_dict[position])]
-    # dataframe before processing and limting amount of columns just to the ones used during clustering
+    # dataframe before processing and limiting amount of columns just to the ones used during clustering
     raw_df = deepcopy(df)
     if position !='Goalkeeper':
         p4p.calculate_new_metrics(raw_df)
+    perc_columns = raw_df.select_dtypes(include=['object']).columns
+    raw_df[perc_columns] = raw_df[perc_columns].applymap(lambda x: float(str(x).replace('%', '')))
 
     df = p4p.process(df, position)
     df.fillna(0, inplace=True)
