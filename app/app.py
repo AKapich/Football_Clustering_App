@@ -62,6 +62,11 @@ select1, select2, select3 = st.columns(3)
 column_list = relevant_features_dict[selected_position]+new_metrics_dict[selected_position]
 our_cluster = clustered_df[clustered_df['Cluster']==selected_cluster][column_list]
 others = clustered_df[clustered_df['Cluster']!=selected_cluster][column_list]
+
+perc_columns = others.select_dtypes(include=['object']).columns
+our_cluster[perc_columns] = our_cluster[perc_columns].applymap(lambda x: float(str(x).replace('%', '')))
+others[perc_columns] = others[perc_columns].applymap(lambda x: float(str(x).replace('%', '')))
+
 diff = our_cluster.mean() - others.mean()
 top3metrics = list(diff.sort_values(ascending=False).index)[:3]
 with select1:
