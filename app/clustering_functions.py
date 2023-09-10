@@ -22,8 +22,6 @@ def basic_clustering(df, position, age_lower_threshold=16, age_upper_threshold=4
     raw_df = deepcopy(df)
     if position !='Goalkeeper':
         p4p.calculate_new_metrics(raw_df)
-    perc_columns = raw_df.select_dtypes(include=['object']).columns
-    raw_df[perc_columns] = raw_df[perc_columns].applymap(lambda x: float(str(x).replace('%', '')))
 
     df = p4p.process(df, position)
     df.fillna(0, inplace=True)
