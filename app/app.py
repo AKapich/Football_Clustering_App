@@ -35,7 +35,7 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 with st.sidebar:
-    st.image("https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/alekskapich.png", width=200)
+    st.image("https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/alekskapich2.png", width=200)
 
 
 selected_position = st.sidebar.selectbox("Select position to scrutinize:",     
