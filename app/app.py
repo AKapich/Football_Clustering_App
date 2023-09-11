@@ -105,21 +105,13 @@ except Exception:
 
 #
 st.markdown('---')
-# opta = opta.resize((1030, 348))
 st.image('https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/Opta_by_Stats_Perform_Logo.png',
           caption='App made by Aleks Kapich. Data powered by Opta',
-          width=773)
+          width=400)
 
 
 # signature
 st.sidebar.markdown('---')
-# col1, col2 = st.sidebar.columns(2)
-# with col1:
-#     logo = Image.open("C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/app/alekskapich.png")
-#     logo = logo.resize((250, 250))
-#     st.sidebar.image(logo)
-# #st.sidebar.image(Image.open("C:/Users/Aleks/OneDrive/Dokumenty/GitHub/Football_Clustering/app/alekskapich.png"))
-# with col2:
 st.sidebar.write("[Twitter](https://twitter.com/AKapich)")
 st.sidebar.write("[GitHub](https://github.com/AKapich)")
 st.sidebar.write("[Buy Me a Coffee](https://www.buymeacoffee.com/akapich)")
