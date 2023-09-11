@@ -51,7 +51,7 @@ def basic_clustering(df, position, age_lower_threshold=16, age_upper_threshold=4
 
 def beeswarm_comparison(clustered_df, metric, cluster2highlight):
     fig, ax = plt.subplots(figsize=(10, 2.5))
-    plot_df = clustered_df[['Cluster', metric]]
+    plot_df = pd.DataFrame(clustered_df[['Cluster', metric]])
     if plot_df[metric].dtype == 'object':
         plot_df[metric] = plot_df[metric].apply(lambda x: float(str(x).replace('%', '')))
 
