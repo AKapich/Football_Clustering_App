@@ -58,7 +58,7 @@ def beeswarm_comparison(clustered_df, metric, cluster2highlight):
     palette = dict(zip(clustered_df['Cluster'].unique(), ['#fafafa']*len(clustered_df['Cluster'].unique())))
     palette[cluster2highlight] = '#ff4b4b'
 
-    sns.swarmplot(data=plot_df, x=metric, hue='Cluster', palette=palette, ax=ax, legend=False)
+    sns.swarmplot(data=plot_df, x=metric, hue='Cluster', palette=palette, ax=ax, legend=None)
     fig.set_facecolor('#0e1117')
     ax.set_facecolor('#0e1117')
 

@@ -88,8 +88,7 @@ with col1:
 with col2:
     st.write(f"Cluster {selected_cluster} vs other  {selected_position}'s:")
     for i in range(3):
-        fig = beeswarm_comparison(clustered_df=clustered_df, metric=selected_items[i], cluster2highlight=selected_cluster)
-        st.pyplot(fig)
+        st.pyplot(beeswarm_comparison(clustered_df=clustered_df, metric=selected_items[i], cluster2highlight=selected_cluster))
 
 
 st.markdown('---')
