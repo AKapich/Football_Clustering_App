@@ -4,6 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.pipeline import Pipeline
+from yellowbrick.cluster import KElbowVisualizer
 import pandas as pd
 import seaborn as sns
 import numpy as np
@@ -35,7 +36,11 @@ def basic_clustering(df, position, age_lower_threshold=16, age_upper_threshold=4
     pipeline = Pipeline([('pca', pca), ('tsne', tsne)])
     reduced_data = pipeline.fit_transform(scaled_data)
 
-    n_clusters = p4p.play_patterns_dict[position]
+    #n_clusters = p4p.play_patterns_dict[position]
+    visualizer = KElbowVisualizer(KMeans(random_state=42, n_init=10), k=(2,12), metric='distortion')
+    visualizer.fit(reduced_data)
+    n_clusters = visualizer.elbow_value_
+
     kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
     cluster_labels = kmeans.fit_predict(reduced_data)
 

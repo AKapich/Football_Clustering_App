@@ -2,3 +2,4 @@ streamlit_extras==0.3.0
 openai==0.28.0
 sklearn==0.0
 seaborn==0.12.2
+yellowbrick==1.5
