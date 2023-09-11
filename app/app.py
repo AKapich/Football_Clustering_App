@@ -108,7 +108,7 @@ except Exception:
 st.markdown('---')
 st.image('https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main/app/Opta_by_Stats_Perform_Logo.png',
           caption='App made by Aleks Kapich. Data powered by Opta',
-          width=400)
+          width=340)
 
 
 # signature
