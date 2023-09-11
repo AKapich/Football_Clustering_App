@@ -55,10 +55,10 @@ def beeswarm_comparison(clustered_df, metric, cluster2highlight):
     if plot_df[metric].dtype == 'object':
         plot_df[metric] = plot_df[metric].apply(lambda x: float(str(x).replace('%', '')))
 
-    # palette = dict(zip(clustered_df['Cluster'].unique(), ['#fafafa']*len(clustered_df['Cluster'].unique())))
-    # palette[cluster2highlight] = '#ff4b4b'
+    palette = dict(zip(clustered_df['Cluster'].unique(), ['#fafafa']*len(clustered_df['Cluster'].unique())))
+    palette[cluster2highlight] = '#ff4b4b'
 
-    sns.swarmplot(data=plot_df, x=metric, hue='Cluster', palette='Set1', ax=ax, legend=False)
+    sns.swarmplot(data=plot_df, x=metric, hue='Cluster', palette=palette, ax=ax, legend=False)
     fig.set_facecolor('#0e1117')
     ax.set_facecolor('#0e1117')
 
