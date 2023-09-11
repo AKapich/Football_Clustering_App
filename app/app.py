@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_extras.stoggle import stoggle
+from streamlit_extras.badges import badge
 import openai
 import pandas as pd
 from PIL import Image
@@ -112,6 +113,7 @@ st.image('https://raw.githubusercontent.com/AKapich/Football_Clustering_App/main
 
 # signature
 st.sidebar.markdown('---')
-st.sidebar.write("[Twitter](https://twitter.com/AKapich)")
-st.sidebar.write("[GitHub](https://github.com/AKapich)")
-st.sidebar.write("[Buy Me a Coffee](https://www.buymeacoffee.com/akapich)")
+with st.sidebar:
+    badge(type="twitter", name="AKapich")
+    badge(type="github", name="AKapich")
+    badge(type="buymeacoffee", name="akapich")
