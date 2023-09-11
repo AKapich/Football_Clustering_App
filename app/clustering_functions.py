@@ -51,14 +51,14 @@ def basic_clustering(df, position, age_lower_threshold=16, age_upper_threshold=4
 
 def beeswarm_comparison(clustered_df, metric, cluster2highlight):
     fig, ax = plt.subplots(figsize=(10, 2.5))
-    plot_df = pd.DataFrame(clustered_df[['Cluster', metric]])
+    plot_df = clustered_df[['Cluster', metric]]
     if plot_df[metric].dtype == 'object':
         plot_df[metric] = plot_df[metric].apply(lambda x: float(str(x).replace('%', '')))
 
-    palette = dict(zip(clustered_df['Cluster'].unique(), ['#fafafa']*len(clustered_df['Cluster'].unique())))
-    palette[cluster2highlight] = '#ff4b4b'
+    # palette = dict(zip(clustered_df['Cluster'].unique(), ['#fafafa']*len(clustered_df['Cluster'].unique())))
+    # palette[cluster2highlight] = '#ff4b4b'
 
-    sns.swarmplot(data=plot_df, x=metric, hue='Cluster', palette=palette, ax=ax, legend=False)
+    sns.swarmplot(data=plot_df, x=metric, hue='Cluster', palette='Set1', ax=ax, legend=False)
     fig.set_facecolor('#0e1117')
     ax.set_facecolor('#0e1117')
 
